@@ -7,7 +7,12 @@ import java.util.Map;
 public class Service {
 
     public Order makeOrder(int date, Map<Menu, Integer> menus) {
-        if (menus.size() > 21) {
+        int totalCount = 0;
+        for (int count : menus.values()) {
+            totalCount += count;
+        }
+
+        if (totalCount > 20) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
 

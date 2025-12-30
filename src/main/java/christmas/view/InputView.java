@@ -29,7 +29,7 @@ public class InputView {
         System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
         String menuLineUp = Console.readLine();
 
-        if (!menuLineUp.matches("^0-9[ㄱ-ㅎ|가-힣]*$")) {
+        if (!menuLineUp.matches("^[가-힣0-9-,]+$")) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
 
