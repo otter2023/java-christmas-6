@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 public class Parser {
     public static Map<Menu, Integer> splitMenu(String menuLineUp) {
+
         String[] splitMenuLineUP = menuLineUp.split(Pattern.quote(","));
         Map<Menu, Integer> menus = new HashMap<>();
 

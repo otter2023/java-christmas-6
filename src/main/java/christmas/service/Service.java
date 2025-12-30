@@ -1,13 +1,15 @@
 package christmas.service;
 
 import christmas.domain.*;
-import christmas.util.Parser;
 
 import java.util.Map;
 
 public class Service {
 
     public Order makeOrder(int date, Map<Menu, Integer> menus) {
+        if (menus.size() > 21) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
 
         checkOnlyDrink(menus);
 
@@ -64,15 +66,6 @@ public class Service {
             return Badge.STAR;
         }
         return Badge.NONE;
-    }
-
-    public Map<Menu, Integer> getMenu(String menuLineUp) {
-        Map<Menu, Integer> menus = Parser.splitMenu(menuLineUp);
-        if (menus.size() > 21) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        }
-
-        return menus;
     }
 
     public int calculateOriginalValue(Map<Menu, Integer> menus) {
